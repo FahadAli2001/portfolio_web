@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/controller/home_page_controller/home_controller.dart';
 import 'package:portfolio_web/utils/colors.dart';
 
 class MainDesktop extends StatelessWidget {
@@ -39,7 +40,9 @@ class MainDesktop extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(yellowPrimary),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    launchWhatsAppChat();
+                  },
                   child: const Text("Get in touch",
                   style: TextStyle(color: whitePrimary,
                   fontWeight: FontWeight.bold),),
