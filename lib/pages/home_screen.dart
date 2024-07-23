@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio_web/utils/colors.dart';
 import 'package:portfolio_web/widgets/drawer_mobile.dart';
 import 'package:portfolio_web/widgets/header_desktop.dart';
 import 'package:portfolio_web/widgets/header_mobile.dart';
 import 'package:portfolio_web/widgets/main_desktop.dart';
+import 'package:portfolio_web/widgets/skills_desktop.dart';
+import 'package:portfolio_web/widgets/skills_mobile.dart';
 
 import '../widgets/main_mobile.dart';
 
@@ -47,157 +47,47 @@ class _HomeScreenState extends State<HomeScreen> {
               const MainDesktop()
             else
               const MainMobile(),
+            // About Me
 
-            // Skills
             Container(
+              width: double.infinity,
               height: 500,
-              padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-              width: double.maxFinite,
-              color: bgLight1,
+              padding: const EdgeInsets.fromLTRB(25, 20, 25, 20),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
-                    "What Can I Do ? ",
+                    "About Me",
                     style: TextStyle(
                         color: whitePrimary,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                color: bgLight2,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: const Center(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.android,
-                                  color: whitePrimary,
-                                  size: 30,
-                                ),
-                                title: Text(
-                                  "Android",
-                                  style: TextStyle(
-                                      fontSize: 18, color: whitePrimary),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Container(
-                            height: 60,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                color: bgLight2,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: const Center(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.apple,
-                                  color: whitePrimary,
-                                  size: 30,
-                                ),
-                                title: Text(
-                                  "IOS",
-                                  style: TextStyle(
-                                      fontSize: 18, color: whitePrimary),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                  Container(
+                    width: 500,
+                    margin:const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                        color: bgLight2,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(30),
+                      child: Text(
+                        "Hi, I'm a Flutter developer currently pursuing a Bachelor of Science in Computer Science (BSCS) from PAFKIET University North Campus. I have over a year of experience as a Flutter Developer. I began my career as a Flutter developer intern at Techendology. I then moved to Technopreneurs as a Flutter developer, and now I'm working at Zemfar",
+                        style: TextStyle(color: whitePrimary,
+                        fontSize: 18),
                       ),
-                      //
-                      const SizedBox(
-                        width: 50,
-                      ),
-                      //
-                       Column(
-                        children:  [
-                           SizedBox(
-                            width:MediaQuery.sizeOf(context).width * 0.25,
-                             child:const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                 Chip(
-                              label: Text(
-                                "Flutter",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                             Chip(
-                              label: Text(
-                                "Dart",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                             Chip(
-                              label: Text(
-                                "Firebase",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                              ],
-                             ),
-                           ),
-                            SizedBox(
-                            width:MediaQuery.sizeOf(context).width * 0.35,
-                             child:const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                 Chip(
-                              label: Text(
-                                "Api Integraion",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                             Chip(
-                              label: Text(
-                                "Google Maps",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                             Chip(
-                              label: Text(
-                                "Push Notifications",
-                                style: TextStyle(color: whitePrimary),
-                              ),
-                              backgroundColor: bgLight2,
-                              elevation: 5,
-                                                       ),
-                              ],
-                             ),
-                           ),
-                        ],
-                      )
-                    ],
-                  )
+                    ),
+                  ),
                 ],
               ),
             ),
+
+            // Skills
+            constraints.maxWidth >= 600
+                ? const SkillsDesktop()
+                : const SkillsMobile(),
             // Projects
             Container(
               height: 500,
